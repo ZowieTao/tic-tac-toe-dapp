@@ -34,6 +34,7 @@ module.exports = {
     'react',
     'react-hooks',
     'simple-import-sort',
+    'prettier',
   ],
   rules: {
     'simple-import-sort/imports': 'error',
