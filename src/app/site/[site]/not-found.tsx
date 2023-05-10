@@ -1,3 +1,3 @@
 export default async function NotFound() {
-  return <>not found </>
+  return "not found"
 }
