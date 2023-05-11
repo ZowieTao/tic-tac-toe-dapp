@@ -1,5 +1,6 @@
 import { Metadata } from "next"
 
+import "../css/main.css"
 import Providers from "./provider"
 
 const APP_NAME = "Tic Tac Toe"
@@ -36,9 +37,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html>
+    <html lang="en">
       <body>
-        RootLayout:
         <Providers>{children}</Providers>
       </body>
     </html>

@@ -5,14 +5,7 @@ export default async function HomeLayout({
 }) {
   return (
     <div>
-      home layout:
-      <div
-        style={{
-          margin: "10px",
-        }}
-      >
-        {children}
-      </div>
+      <div>{children}</div>
     </div>
   )
 }
