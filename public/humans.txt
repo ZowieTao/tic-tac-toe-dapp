@@ -1,0 +1,6 @@
+This react path was built by Zowie Tao!
+
+GitHub: https://github.com/ZowieTao
+Twitter: https://twitter.com/ZowieTao
+
+Checkout the https://humanstxt.org/ protocol to see how you should format your humans.txt file!
