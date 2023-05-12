@@ -3,6 +3,12 @@ declare module "react" {
     "data-hide-print"?: boolean
     "aria-hidden"?: boolean
   }
+  export interface Window {
+    ethereum?: any;
+  }
 }
+
+
+
 
 export {}
