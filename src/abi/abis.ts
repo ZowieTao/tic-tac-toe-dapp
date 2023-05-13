@@ -4,7 +4,7 @@ export const ChangeStateInputAbi = [
     inputs: [
       {
         name: "v",
-        type: "uint256",
+        type: "string",
       },
     ],
     name: "set",
@@ -20,7 +20,7 @@ export const ChangeStateInputAbi = [
     outputs: [
       {
         name: "",
-        type: "uint256",
+        type: "string",
       },
     ],
     payable: false,

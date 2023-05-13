@@ -6,7 +6,7 @@
       "inputs": [
         {
           "name": "v",
-          "type": "uint256"
+          "type": "string"
         }
       ],
       "name": "set",
@@ -22,7 +22,7 @@
       "outputs": [
         {
           "name": "",
-          "type": "uint256"
+          "type": "string"
         }
       ],
       "payable": false,
@@ -30,12 +30,12 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.4.26+commit.4563c3fc\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"name\":\"v\",\"type\":\"uint256\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/ChangeStateInput.sol\":\"ChangeStateInput\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/ChangeStateInput.sol\":{\"keccak256\":\"0xe0f333824c554c830c5490ec8e3383977c11b06d4cafa04c6282d470dd577615\",\"urls\":[\"bzzr://78404b2a783023e70034f6665218f29135d0e2f564d6015677f4e1ead7348708\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b5060df8061001f6000396000f3006080604052600436106049576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806360fe47b114604e5780636d4ce63c146078575b600080fd5b348015605957600080fd5b5060766004803603810190808035906020019092919050505060a0565b005b348015608357600080fd5b50608a60aa565b6040518082815260200191505060405180910390f35b8060008190555050565b600080549050905600a165627a7a72305820b36a741e2724c74afa7259d4ac079b39cc40486610fffba69c7c985015311b1f0029",
-  "deployedBytecode": "0x6080604052600436106049576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806360fe47b114604e5780636d4ce63c146078575b600080fd5b348015605957600080fd5b5060766004803603810190808035906020019092919050505060a0565b005b348015608357600080fd5b50608a60aa565b6040518082815260200191505060405180910390f35b8060008190555050565b600080549050905600a165627a7a72305820b36a741e2724c74afa7259d4ac079b39cc40486610fffba69c7c985015311b1f0029",
-  "sourceMap": "67:202:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;67:202:0;;;;;;;",
-  "deployedSourceMap": "67:202:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;134:56;;8:9:-1;5:2;;;30:1;27;20:12;5:2;134:56:0;;;;;;;;;;;;;;;;;;;;;;;;;;194:73;;8:9:-1;5:2;;;30:1;27;20:12;5:2;194:73:0;;;;;;;;;;;;;;;;;;;;;;;134:56;184:1;171:10;:14;;;;134:56;:::o;194:73::-;230:7;252:10;;245:17;;194:73;:::o",
-  "source": "// SPDX-License-Identifier: MIT\n\npragma solidity >=0.4.26 <0.9.0;\n\ncontract ChangeStateInput {\n  // variable\n  uint256 stateInput;\n\n  function set(uint256 v) public {\n    stateInput = v;\n  }\n\n  function get() public view returns (uint256) {\n    return stateInput;\n  }\n}\n",
+  "metadata": "{\"compiler\":{\"version\":\"0.4.26+commit.4563c3fc\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"name\":\"v\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/ChangeStateInput.sol\":\"ChangeStateInput\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/ChangeStateInput.sol\":{\"keccak256\":\"0x80e11cbbed07a8533e15c4fa1e50205248213310d5eff0aace66c2b9e8b8cc06\",\"urls\":[\"bzzr://77dc78a5a44849026f81a796a439648b1b7c24748a26b6a81f4130ea4a7080c5\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506102d7806100206000396000f30060806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680634ed3885e146100515780636d4ce63c146100ba575b600080fd5b34801561005d57600080fd5b506100b8600480360381019080803590602001908201803590602001908080601f016020809104026020016040519081016040528093929190818152602001838380828437820191505050505050919291929050505061014a565b005b3480156100c657600080fd5b506100cf610164565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561010f5780820151818401526020810190506100f4565b50505050905090810190601f16801561013c5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b8060009080519060200190610160929190610206565b5050565b606060008054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156101fc5780601f106101d1576101008083540402835291602001916101fc565b820191906000526020600020905b8154815290600101906020018083116101df57829003601f168201915b5050505050905090565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061024757805160ff1916838001178555610275565b82800160010185558215610275579182015b82811115610274578251825591602001919060010190610259565b5b5090506102829190610286565b5090565b6102a891905b808211156102a457600081600090555060010161028c565b5090565b905600a165627a7a723058208250aa0d841abf79c4328f3cd513b7a1254bac9a0bdfb23f23f2ae0da60993880029",
+  "deployedBytecode": "0x60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680634ed3885e146100515780636d4ce63c146100ba575b600080fd5b34801561005d57600080fd5b506100b8600480360381019080803590602001908201803590602001908080601f016020809104026020016040519081016040528093929190818152602001838380828437820191505050505050919291929050505061014a565b005b3480156100c657600080fd5b506100cf610164565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561010f5780820151818401526020810190506100f4565b50505050905090810190601f16801561013c5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b8060009080519060200190610160929190610206565b5050565b606060008054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156101fc5780601f106101d1576101008083540402835291602001916101fc565b820191906000526020600020905b8154815290600101906020018083116101df57829003601f168201915b5050505050905090565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061024757805160ff1916838001178555610275565b82800160010185558215610275579182015b82811115610274578251825591602001919060010190610259565b5b5090506102829190610286565b5090565b6102a891905b808211156102a457600081600090555060010161028c565b5090565b905600a165627a7a723058208250aa0d841abf79c4328f3cd513b7a1254bac9a0bdfb23f23f2ae0da60993880029",
+  "sourceMap": "67:213:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;67:213:0;;;;;;;",
+  "deployedSourceMap": "67:213:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;133:62;;8:9:-1;5:2;;;30:1;27;20:12;5:2;133:62:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;199:79;;8:9:-1;5:2;;;30:1;27;20:12;5:2;199:79:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;199:79:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;133:62;189:1;176:10;:14;;;;;;;;;;;;:::i;:::-;;133:62;:::o;199:79::-;235:6;263:10;256:17;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;199:79;:::o;67:213::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "// SPDX-License-Identifier: MIT\n\npragma solidity >=0.4.26 <0.9.0;\n\ncontract ChangeStateInput {\n  // variable\n  string stateInput;\n\n  function set(string memory v) public {\n    stateInput = v;\n  }\n\n  function get() public view returns (string memory) {\n    return stateInput;\n  }\n}\n",
   "sourcePath": "/Users/zowietao/Documents/WorkSpace/tic-tac-toe-dapp/contracts/ChangeStateInput.sol",
   "ast": {
     "absolutePath": "project:/contracts/ChangeStateInput.sol",
@@ -80,21 +80,21 @@
             "name": "stateInput",
             "nodeType": "VariableDeclaration",
             "scope": 22,
-            "src": "111:18:0",
+            "src": "111:17:0",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_uint256",
-              "typeString": "uint256"
+              "typeIdentifier": "t_string_storage",
+              "typeString": "string"
             },
             "typeName": {
               "id": 2,
-              "name": "uint256",
+              "name": "string",
               "nodeType": "ElementaryTypeName",
-              "src": "111:7:0",
+              "src": "111:6:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_uint256",
-                "typeString": "uint256"
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
               }
             },
             "value": null,
@@ -104,7 +104,7 @@
             "body": {
               "id": 12,
               "nodeType": "Block",
-              "src": "165:25:0",
+              "src": "170:25:0",
               "statements": [
                 {
                   "expression": {
@@ -121,10 +121,10 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 3,
-                      "src": "171:10:0",
+                      "src": "176:10:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_uint256",
-                        "typeString": "uint256"
+                        "typeIdentifier": "t_string_storage",
+                        "typeString": "string storage ref"
                       }
                     },
                     "nodeType": "Assignment",
@@ -136,21 +136,21 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 5,
-                      "src": "184:1:0",
+                      "src": "189:1:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_uint256",
-                        "typeString": "uint256"
+                        "typeIdentifier": "t_string_memory_ptr",
+                        "typeString": "string memory"
                       }
                     },
-                    "src": "171:14:0",
+                    "src": "176:14:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
                     }
                   },
                   "id": 11,
                   "nodeType": "ExpressionStatement",
-                  "src": "171:14:0"
+                  "src": "176:14:0"
                 }
               ]
             },
@@ -172,38 +172,38 @@
                   "name": "v",
                   "nodeType": "VariableDeclaration",
                   "scope": 13,
-                  "src": "147:9:0",
+                  "src": "146:15:0",
                   "stateVariable": false,
-                  "storageLocation": "default",
+                  "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
                   },
                   "typeName": {
                     "id": 4,
-                    "name": "uint256",
+                    "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "147:7:0",
+                    "src": "146:6:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
                     }
                   },
                   "value": null,
                   "visibility": "internal"
                 }
               ],
-              "src": "146:11:0"
+              "src": "145:17:0"
             },
             "payable": false,
             "returnParameters": {
               "id": 7,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "165:0:0"
+              "src": "170:0:0"
             },
             "scope": 22,
-            "src": "134:56:0",
+            "src": "133:62:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
@@ -212,7 +212,7 @@
             "body": {
               "id": 20,
               "nodeType": "Block",
-              "src": "239:28:0",
+              "src": "250:28:0",
               "statements": [
                 {
                   "expression": {
@@ -222,16 +222,16 @@
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
                     "referencedDeclaration": 3,
-                    "src": "252:10:0",
+                    "src": "263:10:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
                     }
                   },
                   "functionReturnParameters": 17,
                   "id": 19,
                   "nodeType": "Return",
-                  "src": "245:17:0"
+                  "src": "256:17:0"
                 }
               ]
             },
@@ -247,7 +247,7 @@
               "id": 14,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "206:2:0"
+              "src": "211:2:0"
             },
             "payable": false,
             "returnParameters": {
@@ -260,41 +260,41 @@
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 21,
-                  "src": "230:7:0",
+                  "src": "235:6:0",
                   "stateVariable": false,
-                  "storageLocation": "default",
+                  "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
                   },
                   "typeName": {
                     "id": 15,
-                    "name": "uint256",
+                    "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "230:7:0",
+                    "src": "235:6:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
                     }
                   },
                   "value": null,
                   "visibility": "internal"
                 }
               ],
-              "src": "229:9:0"
+              "src": "234:15:0"
             },
             "scope": 22,
-            "src": "194:73:0",
+            "src": "199:79:0",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
         "scope": 23,
-        "src": "67:202:0"
+        "src": "67:213:0"
       }
     ],
-    "src": "33:237:0"
+    "src": "33:248:0"
   },
   "legacyAST": {
     "attributes": {
@@ -347,24 +347,24 @@
               "scope": 22,
               "stateVariable": true,
               "storageLocation": "default",
-              "type": "uint256",
+              "type": "string",
               "value": null,
               "visibility": "internal"
             },
             "children": [
               {
                 "attributes": {
-                  "name": "uint256",
-                  "type": "uint256"
+                  "name": "string",
+                  "type": "string"
                 },
                 "id": 2,
                 "name": "ElementaryTypeName",
-                "src": "111:7:0"
+                "src": "111:6:0"
               }
             ],
             "id": 3,
             "name": "VariableDeclaration",
-            "src": "111:18:0"
+            "src": "111:17:0"
           },
           {
             "attributes": {
@@ -391,30 +391,30 @@
                       "name": "v",
                       "scope": 13,
                       "stateVariable": false,
-                      "storageLocation": "default",
-                      "type": "uint256",
+                      "storageLocation": "memory",
+                      "type": "string",
                       "value": null,
                       "visibility": "internal"
                     },
                     "children": [
                       {
                         "attributes": {
-                          "name": "uint256",
-                          "type": "uint256"
+                          "name": "string",
+                          "type": "string"
                         },
                         "id": 4,
                         "name": "ElementaryTypeName",
-                        "src": "147:7:0"
+                        "src": "146:6:0"
                       }
                     ],
                     "id": 5,
                     "name": "VariableDeclaration",
-                    "src": "147:9:0"
+                    "src": "146:15:0"
                   }
                 ],
                 "id": 6,
                 "name": "ParameterList",
-                "src": "146:11:0"
+                "src": "145:17:0"
               },
               {
                 "attributes": {
@@ -425,7 +425,7 @@
                 "children": [],
                 "id": 7,
                 "name": "ParameterList",
-                "src": "165:0:0"
+                "src": "170:0:0"
               },
               {
                 "children": [
@@ -439,7 +439,7 @@
                           "isPure": false,
                           "lValueRequested": false,
                           "operator": "=",
-                          "type": "uint256"
+                          "type": "string storage ref"
                         },
                         "children": [
                           {
@@ -449,12 +449,12 @@
                                 null
                               ],
                               "referencedDeclaration": 3,
-                              "type": "uint256",
+                              "type": "string storage ref",
                               "value": "stateInput"
                             },
                             "id": 8,
                             "name": "Identifier",
-                            "src": "171:10:0"
+                            "src": "176:10:0"
                           },
                           {
                             "attributes": {
@@ -463,32 +463,32 @@
                                 null
                               ],
                               "referencedDeclaration": 5,
-                              "type": "uint256",
+                              "type": "string memory",
                               "value": "v"
                             },
                             "id": 9,
                             "name": "Identifier",
-                            "src": "184:1:0"
+                            "src": "189:1:0"
                           }
                         ],
                         "id": 10,
                         "name": "Assignment",
-                        "src": "171:14:0"
+                        "src": "176:14:0"
                       }
                     ],
                     "id": 11,
                     "name": "ExpressionStatement",
-                    "src": "171:14:0"
+                    "src": "176:14:0"
                   }
                 ],
                 "id": 12,
                 "name": "Block",
-                "src": "165:25:0"
+                "src": "170:25:0"
               }
             ],
             "id": 13,
             "name": "FunctionDefinition",
-            "src": "134:56:0"
+            "src": "133:62:0"
           },
           {
             "attributes": {
@@ -516,7 +516,7 @@
                 "children": [],
                 "id": 14,
                 "name": "ParameterList",
-                "src": "206:2:0"
+                "src": "211:2:0"
               },
               {
                 "children": [
@@ -526,30 +526,30 @@
                       "name": "",
                       "scope": 21,
                       "stateVariable": false,
-                      "storageLocation": "default",
-                      "type": "uint256",
+                      "storageLocation": "memory",
+                      "type": "string",
                       "value": null,
                       "visibility": "internal"
                     },
                     "children": [
                       {
                         "attributes": {
-                          "name": "uint256",
-                          "type": "uint256"
+                          "name": "string",
+                          "type": "string"
                         },
                         "id": 15,
                         "name": "ElementaryTypeName",
-                        "src": "230:7:0"
+                        "src": "235:6:0"
                       }
                     ],
                     "id": 16,
                     "name": "VariableDeclaration",
-                    "src": "230:7:0"
+                    "src": "235:6:0"
                   }
                 ],
                 "id": 17,
                 "name": "ParameterList",
-                "src": "229:9:0"
+                "src": "234:15:0"
               },
               {
                 "children": [
@@ -565,37 +565,37 @@
                             null
                           ],
                           "referencedDeclaration": 3,
-                          "type": "uint256",
+                          "type": "string storage ref",
                           "value": "stateInput"
                         },
                         "id": 18,
                         "name": "Identifier",
-                        "src": "252:10:0"
+                        "src": "263:10:0"
                       }
                     ],
                     "id": 19,
                     "name": "Return",
-                    "src": "245:17:0"
+                    "src": "256:17:0"
                   }
                 ],
                 "id": 20,
                 "name": "Block",
-                "src": "239:28:0"
+                "src": "250:28:0"
               }
             ],
             "id": 21,
             "name": "FunctionDefinition",
-            "src": "194:73:0"
+            "src": "199:79:0"
           }
         ],
         "id": 22,
         "name": "ContractDefinition",
-        "src": "67:202:0"
+        "src": "67:213:0"
       }
     ],
     "id": 23,
     "name": "SourceUnit",
-    "src": "33:237:0"
+    "src": "33:248:0"
   },
   "compiler": {
     "name": "solc",
@@ -606,11 +606,11 @@
       "events": {},
       "links": {},
       "address": "0x170420aB49da884293ef8d90383b4e0ebe0C1ba8",
-      "transactionHash": "0xa28f53be1f0e293e4035e9c50462b187c5322e029e8967f846b6706d10276dc8"
+      "transactionHash": "0x500631d683f8253daf04868a9ed7fac7673ad224b6e754677fc769a34963444e"
     }
   },
   "schemaVersion": "3.4.13",
-  "updatedAt": "2023-05-13T08:30:58.085Z",
+  "updatedAt": "2023-05-13T13:39:34.602Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}

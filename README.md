@@ -3,7 +3,7 @@ yarn add -G truffle ganache
 ```
 
 ```bash
-npx truffle develop
+yarn truffle develop
 truffle migrate --reset --compile-all
 ```
 

@@ -2,67 +2,10 @@
 
 import { useMemo, useState } from "react"
 import styled from "styled-components"
-import Web3 from "web3"
 
-import { ChangeStateInputAbi } from "../../abi/abis"
-
-// Truffle Outputs post-migration process
-const web3 = new Web3(Web3.givenProvider)
-const contractAddr = "0x170420aB49da884293ef8d90383b4e0ebe0C1ba8"
-const ChangeState = new web3.eth.Contract(ChangeStateInputAbi, contractAddr)
-
-interface WindowWithEthereum extends Window {
-  ethereum?: any
-}
-
-declare const window: WindowWithEthereum
+import { useHandleInit } from "../../hooks"
 
 export default async function Home() {
-  // // Check if a web3 instance is running on port :9545
-  // const web3Check = new Web3()
-  // web3Check.setProvider(
-  //   new Web3.providers.WebsocketProvider("ws://localhost:9545"),
-  // )
-  // web3Check.eth.net
-  //   .isListening()
-  //   .then(() => {
-  //     return console.log("connection is success")
-  //   })
-  //   .catch((error) => {
-  //     return console.log("uh-oh... something went wrong here: ", error)
-  //   })
-
-  // // Check the promise statement and confirm its 9545 on the port
-  // const web3CheckPromise = web3Check.eth.net
-  //   .isListening()
-  //   // ts-ignore
-  //   .then(() => console.log("web3CheckPromise url", web3Check._provider.url))
-
-  // // Read: Get data from our local blockchain
-  // const handleGet = async (e) => {
-  //   e.preventDefault()
-  //   const result = await ChangeState.methods.get().call()
-  //   console.log("gerResult", result)
-  // }
-
-  // // Write: Send data to our local blockchain
-  // const handleSet = async (e) => {
-  //   e.preventDefault()
-  //   if (typeof window.ethereum !== "undefined") {
-  //     const accounts = await window.ethereum.request({
-  //       method: "eth_requestAccounts",
-  //     })
-
-  //     const account = accounts[0]
-  //     const gas = await ChangeState.methods.set(10).estimateGas()
-
-  //     const result = await ChangeState.methods
-  //       .set(10)
-  //       .send({ from: account, gas })
-  //     console.log("result", result)
-  //   }
-  // }
-
   return (
     <InputBoxCon>
       <InputBox>
@@ -201,24 +144,20 @@ function Board({ xIsNext, squares, onPlay }) {
 }
 
 function Game() {
-  const _history = [
-    [null, null, null, null, null, null, null, null, null],
-    ["X", null, null, null, null, null, null, null, null],
-    ["X", null, null, null, null, "O", null, null, null],
-    ["X", "X", null, null, null, "O", null, null, null],
-    ["X", "X", null, null, "O", "O", null, null, null],
-    ["X", "X", null, null, "O", "O", null, "X", null],
-  ]
-
-  const [history, setHistory] = useState(_history ?? [Array(9).fill(null)])
-  const [currentMove, setCurrentMove] = useState(_history.length - 1)
+  const { handleGet, handleSet } = useHandleInit()
+  const [history, setHistory] = useState([Array(9).fill(null)])
+  const [currentMove, setCurrentMove] = useState(0)
   const xIsNext = currentMove % 2 === 0
   const currentSquares = history[currentMove]
 
-  function handlePlay(nextSquares) {
+  async function handlePlay(nextSquares) {
     const nextHistory = [...history.slice(0, currentMove + 1), nextSquares]
-    setHistory(nextHistory)
-    setCurrentMove(nextHistory.length - 1)
+    await handleSet(nextHistory)
+      .then(() => {
+        setHistory(nextHistory)
+        setCurrentMove(nextHistory.length - 1)
+      })
+      .catch((err) => {})
   }
 
   function jumpTo(nextMove) {
@@ -248,10 +187,21 @@ function Game() {
     overflow: scroll;
     padding: 0.8rem;
   `
-  console.info("info", { history, currentMove, xIsNext, currentSquares })
 
   return (
     <GameComponent className="game">
+      <div
+        style={{ cursor: "pointer" }}
+        onClick={async (e) => {
+          e.preventDefault()
+          const result = await handleGet().catch((err) => undefined)
+
+          setHistory(result)
+          setCurrentMove(result.length - 1)
+        }}
+      >
+        init
+      </div>
       <GameBoard className="game-board">
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </GameBoard>
