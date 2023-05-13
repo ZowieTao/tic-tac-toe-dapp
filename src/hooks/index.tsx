@@ -11,6 +11,8 @@ interface WindowWithEthereum extends Window {
   ethereum?: any
 }
 
+const ChangeState = new web3.eth.Contract(ChangeStateInputAbi, contractAddr)
+
 declare const window: WindowWithEthereum
 
 export const useHandleInit = () => {
@@ -49,8 +51,6 @@ export const useHandleInit = () => {
 
   // Read: Get data from our local blockchain
   const handleGet = async () => {
-    const ChangeState = new web3.eth.Contract(ChangeStateInputAbi, contractAddr)
-
     const result = await ChangeState.methods.get().call()
 
     return JSON.parse(result)
@@ -64,11 +64,6 @@ export const useHandleInit = () => {
       })
 
       const account = accounts[0]
-
-      const ChangeState = new web3.eth.Contract(
-        ChangeStateInputAbi,
-        contractAddr,
-      )
 
       const gas = await ChangeState.methods
         .set(JSON.stringify(val))
