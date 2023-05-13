@@ -4241,7 +4241,7 @@ create-hmac@^1.1.4, create-hmac@^1.1.7:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-cross-fetch@^3.1.4, cross-fetch@^3.1.5:
+cross-fetch@^3.1.4:
   version "3.1.5"
   resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-3.1.5.tgz#e1389f44d9e7ba767907f7af8454787952ab534f"
   integrity sha512-lvb1SBsI0Z7GDwmuid+mU3kWVBwTVUbe7S0H52yaaAdQOXq2YktTCZdlAcNKFzE6QtRz0snpw9bNiPeOIkkQvw==
@@ -5690,6 +5690,27 @@ functions-have-names@^1.2.2, functions-have-names@^1.2.3:
 ganache@7.8.0:
   version "7.8.0"
   resolved "https://registry.yarnpkg.com/ganache/-/ganache-7.8.0.tgz#02154384f246b66e98974cbcbb18e8372df3c2e0"
+  integrity sha512-IrUYvsaE/m2/NaVIZ7D/gCnsmyU/buechnH6MhUipzG1qJcZIwIp/DoP/LZUcHyhy0Bv0NKZD2pGOjpRhn7l7A==
+  dependencies:
+    "@trufflesuite/bigint-buffer" "1.1.10"
+    "@trufflesuite/uws-js-unofficial" "20.10.0-unofficial.2"
+    "@types/bn.js" "^5.1.0"
+    "@types/lru-cache" "5.1.1"
+    "@types/seedrandom" "3.0.1"
+    abstract-level "1.0.3"
+    abstract-leveldown "7.2.0"
+    async-eventemitter "0.2.4"
+    emittery "0.10.0"
+    keccak "3.0.2"
+    leveldown "6.1.0"
+    secp256k1 "4.0.3"
+  optionalDependencies:
+    bufferutil "4.0.5"
+    utf-8-validate "5.0.7"
+
+ganache@^7.8.0:
+  version "7.8.0"
+  resolved "https://registry.npmjs.org/ganache/-/ganache-7.8.0.tgz#02154384f246b66e98974cbcbb18e8372df3c2e0"
   integrity sha512-IrUYvsaE/m2/NaVIZ7D/gCnsmyU/buechnH6MhUipzG1qJcZIwIp/DoP/LZUcHyhy0Bv0NKZD2pGOjpRhn7l7A==
   dependencies:
     "@trufflesuite/bigint-buffer" "1.1.10"
@@ -9679,7 +9700,7 @@ tr46@~0.0.3:
 
 truffle@^5.9.0:
   version "5.9.0"
-  resolved "https://registry.yarnpkg.com/truffle/-/truffle-5.9.0.tgz#55035fd092795a3ee8204656bfb593e71438fed2"
+  resolved "https://registry.npmjs.org/truffle/-/truffle-5.9.0.tgz#55035fd092795a3ee8204656bfb593e71438fed2"
   integrity sha512-XZBlGzU+IA0F3oDpmTWas62TYrNseG3xYh861zR+E09K2A0E0eSuTi1d5k+Uzhv4I6bIlNSWL31iI1J/PiZxcw==
   dependencies:
     "@truffle/db-loader" "^0.2.24"

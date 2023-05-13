@@ -27,4 +27,4 @@ export const ChangeStateInputAbi = [
     stateMutability: "view",
     type: "function",
   },
-]
+] as AbiItem[]

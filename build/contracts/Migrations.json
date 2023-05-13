@@ -70,7 +70,7 @@
   "sourceMap": "67:581:1:-;;;114:10;91:33;;;;;;;;;;;;;;;;;;;;172:50;8:9:-1;5:2;;;30:1;27;20:12;5:2;172:50:1;207:10;199:5;;:18;;;;;;;;;;;;;;;;;;67:581;;;;;;",
   "deployedSourceMap": "67:581:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;481:165;;8:9:-1;5:2;;;30:1;27;20:12;5:2;481:165:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;128:39;;8:9:-1;5:2;;;30:1;27;20:12;5:2;128:39:1;;;;;;;;;;;;;;;;;;;;;;;91:33;;8:9:-1;5:2;;;30:1;27;20:12;5:2;91:33:1;;;;;;;;;;;;;;;;;;;;;;;;;;;371:106;;8:9:-1;5:2;;;30:1;27;20:12;5:2;371:106:1;;;;;;;;;;;;;;;;;;;;;;;;;;481:165;543:19;283:5;;;;;;;;;;;269:19;;:10;:19;;;254:101;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;576:11;543:45;;594:8;:21;;;616:24;;594:47;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;594:47:1;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;594:47:1;;;;481:165;;:::o;128:39::-;;;;:::o;91:33::-;;;;;;;;;;;;;:::o;371:106::-;283:5;;;;;;;;;;;269:19;;:10;:19;;;254:101;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;463:9;436:24;:36;;;;371:106;:::o",
   "source": "// SPDX-License-Identifier: MIT\n\npragma solidity >=0.4.26 <0.9.0;\n\ncontract Migrations {\n  address public owner = msg.sender;\n  uint256 public last_completed_migration;\n\n  constructor() public {\n    owner = msg.sender;\n  }\n\n  modifier restricted() {\n    require(\n      msg.sender == owner,\n      \"This function is restricted to the contract's owner\"\n    );\n    _;\n  }\n\n  function setCompleted(uint256 completed) public restricted {\n    last_completed_migration = completed;\n  }\n\n  function upgrade(address new_address) public restricted {\n    Migrations upgraded = Migrations(new_address);\n    upgraded.setCompleted(last_completed_migration);\n  }\n}\n",
-  "sourcePath": "/root/workspace/tic-tac-toe-dapp/contracts/Migrations.sol",
+  "sourcePath": "/Users/zowietao/Documents/WorkSpace/tic-tac-toe-dapp/contracts/Migrations.sol",
   "ast": {
     "absolutePath": "project:/contracts/Migrations.sol",
     "exportedSymbols": {
@@ -1652,12 +1652,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x9F8bb4FCf054e02724d2071E7438Cbf778cdcd4d",
-      "transactionHash": "0x03d05ccd04ac4ed0f3cce5b82f456610391ce93ec2e74a4ced4bb2020d92cda4"
+      "address": "0xaCfB4cA21bd5923acA03Bbd7De3bF532E8c1cEff",
+      "transactionHash": "0x675b9e3e79c73ae80ad093c61e6a0d88c2285ab2396c51f062f66e1ceac5df0d"
     }
   },
   "schemaVersion": "3.4.13",
-  "updatedAt": "2023-05-12T18:05:10.821Z",
+  "updatedAt": "2023-05-13T08:30:58.086Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}
