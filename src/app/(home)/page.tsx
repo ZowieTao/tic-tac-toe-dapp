@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import styled from "styled-components"
 import Web3 from "web3"
 
@@ -18,53 +18,50 @@ interface WindowWithEthereum extends Window {
 declare const window: WindowWithEthereum
 
 export default async function Home() {
-  const [state, setState] = useState(0)
-  const [getState, setGetState] = useState("click to refresh")
+  // // Check if a web3 instance is running on port :9545
+  // const web3Check = new Web3()
+  // web3Check.setProvider(
+  //   new Web3.providers.WebsocketProvider("ws://localhost:9545"),
+  // )
+  // web3Check.eth.net
+  //   .isListening()
+  //   .then(() => {
+  //     return console.log("connection is success")
+  //   })
+  //   .catch((error) => {
+  //     return console.log("uh-oh... something went wrong here: ", error)
+  //   })
 
-  // Check if a web3 instance is running on port :9545
-  const web3Check = new Web3()
-  web3Check.setProvider(
-    new Web3.providers.WebsocketProvider("ws://localhost:9545"),
-  )
-  web3Check.eth.net
-    .isListening()
-    .then(() => {
-      return console.log("connection is success")
-    })
-    .catch((error) => {
-      return console.log("uh-oh... something went wrong here: ", error)
-    })
+  // // Check the promise statement and confirm its 9545 on the port
+  // const web3CheckPromise = web3Check.eth.net
+  //   .isListening()
+  //   // ts-ignore
+  //   .then(() => console.log("web3CheckPromise url", web3Check._provider.url))
 
-  // Check the promise statement and confirm its 9545 on the port
-  const web3CheckPromise = web3Check.eth.net
-    .isListening()
-    .then(() => console.log("web3CheckPromise url", web3Check._provider.url))
+  // // Read: Get data from our local blockchain
+  // const handleGet = async (e) => {
+  //   e.preventDefault()
+  //   const result = await ChangeState.methods.get().call()
+  //   console.log("gerResult", result)
+  // }
 
-  // Read: Get data from our local blockchain
-  const handleGet = async (e) => {
-    e.preventDefault()
-    const result = await ChangeState.methods.get().call()
-    setGetState(result)
-    console.log("get result", result)
-  }
+  // // Write: Send data to our local blockchain
+  // const handleSet = async (e) => {
+  //   e.preventDefault()
+  //   if (typeof window.ethereum !== "undefined") {
+  //     const accounts = await window.ethereum.request({
+  //       method: "eth_requestAccounts",
+  //     })
 
-  // Write: Send data to our local blockchain
-  const handleSet = async (e) => {
-    e.preventDefault()
-    if (typeof window.ethereum !== "undefined") {
-      const accounts = await window.ethereum.request({
-        method: "eth_requestAccounts",
-      })
+  //     const account = accounts[0]
+  //     const gas = await ChangeState.methods.set(10).estimateGas()
 
-      const account = accounts[0]
-      const gas = await ChangeState.methods.set(10).estimateGas()
-
-      const result = await ChangeState.methods
-        .set(10)
-        .send({ from: account, gas })
-      console.log("result", result)
-    }
-  }
+  //     const result = await ChangeState.methods
+  //       .set(10)
+  //       .send({ from: account, gas })
+  //     console.log("result", result)
+  //   }
+  // }
 
   return (
     <InputBoxCon>
@@ -102,10 +99,35 @@ export const InputBoxItems = styled.div`
 `
 
 function Square({ value, onSquareClick }) {
+  const Cell = styled.div`
+    aspect-ratio: 1 / 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #2196f3;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #1976d2;
+      cursor: pointer;
+    }
+
+    &:active,
+    &:focus {
+      background-color: #1565c0;
+      outline: none;
+    }
+  `
+
   return (
-    <button className="square" onClick={onSquareClick}>
+    <Cell className="square" onClick={onSquareClick}>
       {value}
-    </button>
+    </Cell>
   )
 }
 
@@ -123,32 +145,57 @@ function Board({ xIsNext, squares, onPlay }) {
     onPlay(nextSquares)
   }
 
-  const winner = calculateWinner(squares)
-  let status
-  if (winner) {
-    status = "Winner: " + winner
-  } else {
-    status = "Next player: " + (xIsNext ? "X" : "O")
-  }
+  const winner = useMemo(() => {
+    return calculateWinner(squares)
+  }, [squares])
+
+  const status = useMemo(() => {
+    return winner
+      ? "Winner: " + winner
+      : "Next player: " + (xIsNext ? "X" : "O")
+  }, [winner, xIsNext])
+
+  const StatusContainer = styled.div`
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  `
+
+  const BoardContainer = styled.div`
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    grid-gap: 10px;
+  `
+
+  const BoardRow = styled.div`
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px; /* 间距大小 */
+  `
 
   return (
     <>
-      <div className="status">{status}</div>
-      <div className="board-row">
-        <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
-        <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
-        <Square value={squares[2]} onSquareClick={() => handleClick(2)} />
-      </div>
-      <div className="board-row">
-        <Square value={squares[3]} onSquareClick={() => handleClick(3)} />
-        <Square value={squares[4]} onSquareClick={() => handleClick(4)} />
-        <Square value={squares[5]} onSquareClick={() => handleClick(5)} />
-      </div>
-      <div className="board-row">
-        <Square value={squares[6]} onSquareClick={() => handleClick(6)} />
-        <Square value={squares[7]} onSquareClick={() => handleClick(7)} />
-        <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
-      </div>
+      <StatusContainer className="status">{status}</StatusContainer>
+      <BoardContainer>
+        {[0, 1, 2].map((parentVal) => {
+          const startCount = parentVal * 3
+
+          return (
+            <BoardRow className="board-row" key={parentVal}>
+              {[startCount, startCount + 1, startCount + 2].map((val) => {
+                return (
+                  <Square
+                    key={val}
+                    value={squares[val]}
+                    onSquareClick={() => handleClick(val)}
+                  />
+                )
+              })}
+            </BoardRow>
+          )
+        })}
+      </BoardContainer>
     </>
   )
 }
@@ -187,11 +234,20 @@ function Game() {
     }
 
     return (
-      <li key={JSON.stringify(squares)}>
-        <button onClick={() => jumpTo(move)}>{description}</button>
-      </li>
+      <div
+        key={JSON.stringify(squares)}
+        style={{ display: "flex", paddingBottom: "5px" }}
+      >
+        <Button onClick={() => jumpTo(move)}>{description}</Button>
+      </div>
     )
   })
+
+  const MovesContainer = styled.div`
+    height: 8rem;
+    overflow: scroll;
+    padding: 0.8rem;
+  `
   console.info("info", { history, currentMove, xIsNext, currentSquares })
 
   return (
@@ -200,7 +256,7 @@ function Game() {
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </GameBoard>
       <GameInfo className="game-info">
-        <ol>{moves}</ol>
+        <MovesContainer>{moves}</MovesContainer>
       </GameInfo>
     </GameComponent>
   )
@@ -234,9 +290,26 @@ export const GameComponent = styled.div`
 `
 
 export const GameBoard = styled.div`
-  padding: 2rem;
+  padding: 1rem;
   border-right: 1px solid #555555;
+  display: flex;
+  flex-direction: column;
 `
 export const GameInfo = styled.div`
-  padding: 2rem;
+  padding: 1rem;
+`
+
+const Button = styled.button`
+  padding: 10px 20px;
+  background-color: #2196f3;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.02);
+  }
 `
